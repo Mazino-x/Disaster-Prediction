@@ -1,0 +1,296 @@
+.dashboardContainer {
+    padding: 30px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: white;
+}
+
+.dashboardHeader {
+    margin-bottom: 40px;
+    position: relative;
+    text-align: center;
+}
+
+.backBtn {
+    display: block;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.backBtn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: white;
+    transform: translateX(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.dashboardHeader h1 {
+    font-size: 48px;
+    margin: 0 0 10px 0;
+    font-weight: 700;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.locationInfo {
+    font-size: 24px;
+    margin: 15px 0 10px 0;
+    opacity: 0.98;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.coordinates {
+    font-size: 14px;
+    opacity: 0.85;
+    margin: 8px 0 0 0;
+    font-family: 'Courier New', 'Courier', monospace;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 8px 12px;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+.loadingBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 5px solid rgba(255, 255, 255, 0.25);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 25px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.loadingBox p {
+    font-size: 18px;
+    margin: 0;
+    font-weight: 500;
+}
+
+.errorBox {
+    background: rgba(231, 76, 60, 0.2);
+    border: 2px solid rgba(231, 76, 60, 0.6);
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    text-align: left;
+}
+
+.predictionsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.predictionCard {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 30px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.predictionCard:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 16px 50px 0 rgba(31, 38, 135, 0.5);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.predictionCard h2 {
+    font-size: 22px;
+    margin: 0 0 25px 0;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.earthquakeCard h2 {
+    color: #FFD700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.tsunamiCard h2 {
+    color: #1abc9c;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.predictionValue {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 25px;
+}
+
+.riskIndicator {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    font-weight: bold;
+    color: white;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    flex-shrink: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.predictionCard:hover .riskIndicator {
+    transform: scale(1.12);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+}
+
+.riskText {
+    flex: 1;
+}
+
+.riskLevel {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    letter-spacing: 0.5px;
+}
+
+.riskDetail {
+    font-size: 15px;
+    margin: 0;
+    opacity: 0.9;
+    line-height: 1.4;
+}
+
+.cardDetails {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 13px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cardDetails p {
+    margin: 8px 0;
+    line-height: 1.6;
+}
+
+.cardDetails strong {
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 600;
+}
+
+.assessmentFooter {
+    background: rgba(255, 255, 255, 0.08);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.assessmentFooter p {
+    margin: 0 0 15px 0;
+}
+
+.assessmentFooter strong {
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 600;
+}
+
+.assessmentFooter ul {
+    list-style: none;
+    padding: 15px;
+    margin: 0;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    text-align: left;
+}
+
+.assessmentFooter li {
+    margin: 8px 0;
+    padding-left: 25px;
+    position: relative;
+}
+
+.assessmentFooter li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #1abc9c;
+    font-weight: bold;
+}
+
+@media (max-width: 1024px) {
+    .predictionsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboardContainer {
+        padding: 20px 15px;
+        min-height: auto;
+    }
+
+    .dashboardHeader h1 {
+        font-size: 32px;
+    }
+
+    .locationInfo {
+        font-size: 18px;
+    }
+
+    .predictionsGrid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .predictionCard {
+        padding: 20px;
+    }
+
+    .predictionValue {
+        gap: 15px;
+    }
+
+    .riskIndicator {
+        width: 80px;
+        height: 80px;
+        font-size: 36px;
+    }
+
+    .assessmentFooter {
+        padding: 15px;
+        font-size: 13px;
+    }
+}
