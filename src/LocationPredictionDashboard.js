@@ -24,7 +24,7 @@ function LocationPredictionDashboard({ latitude, longitude, locationName, onBack
                 const minute = now.getMinutes();
                 const second = now.getSeconds();
 
-                const backend = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+                const backend = process.env.REACT_APP_API_URL || 'https://disaster-prediction-backend-yrcl.onrender.com';
 
                 // Fetch Earthquake prediction
                 try {

@@ -7,7 +7,7 @@ import REGIONS from './regions';
 // BUG FIX: result was stored in context but never displayed — now rendered
 // BUG FIX: depth field was collected but not sent in payload — now included
 
-const BACKEND = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+const BACKEND = process.env.REACT_APP_API_URL || 'https://disaster-prediction-backend-yrcl.onrender.com';
 
 function TsunamiPrediction() {
   const [region,    setRegion]    = useState('');

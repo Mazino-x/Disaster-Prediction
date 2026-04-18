@@ -8,7 +8,7 @@ import REGIONS from './regions';
 // BUG FIX: result was added to context but never shown in UI — now rendered
 // BUG FIX: validation now checks numeric range as well as presence
 
-const BACKEND = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+const BACKEND = process.env.REACT_APP_API_URL || 'https://disaster-prediction-backend-yrcl.onrender.com';
 
 function EarthquakePrediction() {
   const [region, setRegion]       = useState('');
