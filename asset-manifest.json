@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Disaster-Prediction/static/css/main.120f36e4.css",
+    "main.js": "/Disaster-Prediction/static/js/main.071d1be4.js",
+    "static/js/453.71adb874.chunk.js": "/Disaster-Prediction/static/js/453.71adb874.chunk.js",
+    "index.html": "/Disaster-Prediction/index.html",
+    "main.120f36e4.css.map": "/Disaster-Prediction/static/css/main.120f36e4.css.map",
+    "main.071d1be4.js.map": "/Disaster-Prediction/static/js/main.071d1be4.js.map",
+    "453.71adb874.chunk.js.map": "/Disaster-Prediction/static/js/453.71adb874.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.120f36e4.css",
+    "static/js/main.071d1be4.js"
+  ]
+}
