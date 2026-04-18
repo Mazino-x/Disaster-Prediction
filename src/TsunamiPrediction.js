@@ -46,7 +46,7 @@ function TsunamiPrediction() {
     return null;
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (retryCount = 0) => {
     const validationError = validate();
     if (validationError) { setError(validationError); return; }
 
@@ -69,12 +69,19 @@ function TsunamiPrediction() {
     };
 
     try {
-      const res  = await fetch(`${BACKEND}/tsunami`, {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 30000); // 30 second timeout
+
+      const res = await fetch(`${BACKEND}/tsunami`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
+        signal: controller.signal,
       });
+
+      clearTimeout(timeoutId);
       const json = await res.json();
+
       if (res.ok) {
         setResult({ value: json.prediction, probability: json.probability });
         addPrediction('Tsunami', { latitude, longitude, depth, magnitude, date }, json.prediction, json.probability);
@@ -82,7 +89,13 @@ function TsunamiPrediction() {
         setError(json.error || 'Prediction failed. Check backend connection.');
       }
     } catch (err) {
-      setError('Cannot reach the backend. Make sure the API server is running.');
+      if (err.name === 'AbortError' && retryCount < 2) {
+        // Retry on timeout, up to 2 retries
+        setTimeout(() => handleSubmit(retryCount + 1), 2000); // Wait 2 seconds before retry
+        setError('Backend is starting up, retrying...');
+      } else {
+        setError('Cannot reach the backend. Make sure the API server is running.');
+      }
     } finally {
       setLoading(false);
     }

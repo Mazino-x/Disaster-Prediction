@@ -45,7 +45,7 @@ function EarthquakePrediction() {
     return null;
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (retryCount = 0) => {
     const validationError = validate();
     if (validationError) { setError(validationError); return; }
 
@@ -67,12 +67,19 @@ function EarthquakePrediction() {
     };
 
     try {
-      const res  = await fetch(`${BACKEND}/earthquake`, {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 30000); // 30 second timeout
+
+      const res = await fetch(`${BACKEND}/earthquake`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
+        signal: controller.signal,
       });
+
+      clearTimeout(timeoutId);
       const json = await res.json();
+
       if (res.ok) {
         setResult({ value: json.prediction, probability: json.probability });
         addPrediction('Earthquake', { latitude, longitude, depth, date }, json.prediction, json.probability);
@@ -80,7 +87,13 @@ function EarthquakePrediction() {
         setError(json.error || 'Prediction failed. Check backend connection.');
       }
     } catch (err) {
-      setError('Cannot reach the backend. Make sure the API server is running.');
+      if (err.name === 'AbortError' && retryCount < 2) {
+        // Retry on timeout, up to 2 retries
+        setTimeout(() => handleSubmit(retryCount + 1), 2000); // Wait 2 seconds before retry
+        setError('Backend is starting up, retrying...');
+      } else {
+        setError('Cannot reach the backend. Make sure the API server is running.');
+      }
     } finally {
       setLoading(false);
     }
