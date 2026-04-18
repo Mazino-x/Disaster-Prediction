@@ -1,0 +1,189 @@
+/* ── Location Search Page ────────────────────────── */
+.locationSearchContainer {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+  color: white;
+}
+
+.locationHeader {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.locationHeader h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.locationHeader p {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.65);
+}
+
+/* ── Input panel ─────────────────────────────────── */
+.locationInputSection {
+  background: rgba(255,255,255,0.07);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 16px;
+  padding: 1.4rem 1.6rem;
+  margin-bottom: 1.2rem;
+}
+
+.coordinateInputs {
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.inputGroup {
+  flex: 1;
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.inputGroup label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.7);
+}
+
+.inputGroup input {
+  padding: 10px 13px;
+  border-radius: 10px;
+  border: 1.5px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.08);
+  color: white;
+  font-size: 0.9rem;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.inputGroup input::placeholder { color: rgba(255,255,255,0.3); }
+
+.inputGroup input:focus {
+  outline: none;
+  border-color: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.12);
+}
+
+.regionSuggestions {
+  margin-top: 8px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.regionSuggestion {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.16);
+  background: rgba(255,255,255,0.08);
+  color: white;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.2s ease;
+}
+
+.regionSuggestion:hover {
+  background: rgba(255,255,255,0.16);
+  transform: translateY(-1px);
+}
+
+/* ── Buttons ─────────────────────────────────────── */
+.searchBtn {
+  padding: 10px 22px;
+  background: rgba(255,255,255,0.12);
+  color: white;
+  border: 1.5px solid rgba(255,255,255,0.3);
+  border-radius: 10px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+  white-space: nowrap;
+}
+
+.searchBtn:hover {
+  background: rgba(255,255,255,0.22);
+  transform: translateY(-2px);
+}
+
+.predictBtn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #6c63ff, #5a54d4);
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.15s ease;
+  letter-spacing: 0.3px;
+}
+
+.predictBtn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+/* ── Alerts ──────────────────────────────────────── */
+.errorMessage {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(231,76,60,0.15);
+  border: 1px solid rgba(231,76,60,0.4);
+  color: #ffc0c0;
+  padding: 9px 14px;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  margin-top: 10px;
+}
+
+.selectedLocation {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(39,174,96,0.15);
+  border: 1px solid rgba(39,174,96,0.4);
+  color: #a5d6a7;
+  padding: 9px 14px;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+/* ── Map ─────────────────────────────────────────── */
+.mapContainer {
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 1.2rem;
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.mapContainer .leafletMap,
+.mapContainer .leaflet-container {
+  height: 420px;
+  width: 100%;
+  border-radius: 14px;
+}
+
+@media (max-width: 768px) {
+  .locationSearchContainer { padding: 1.5rem 1rem 3rem; }
+  .locationHeader h2 { font-size: 1.5rem; }
+  .coordinateInputs { flex-direction: column; }
+  .inputGroup { min-width: unset; width: 100%; }
+  .searchBtn { width: 100%; }
+  .mapContainer .leafletMap,
+  .mapContainer .leaflet-container { height: 300px; }
+}

@@ -1,0 +1,92 @@
+.App {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* ── Global Navbar ─────────────────────────────────── */
+.appNavbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navLogo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.navLogoIcon {
+  font-size: 1.4rem;
+}
+
+.navLinks {
+  display: flex;
+  gap: 6px;
+}
+
+.navbarRight {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.topRightInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.75);
+  text-align: right;
+}
+
+.currentTime {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.weatherInfo {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.65);
+}
+
+.navLink {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.88rem;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.navLink:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.navLink.active {
+  color: white;
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+@media (max-width: 600px) {
+  .appNavbar { padding: 0 1rem; }
+  .navLink { padding: 5px 10px; font-size: 0.8rem; }
+  .navLogo span:last-child { display: none; }
+}

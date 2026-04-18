@@ -1,0 +1,155 @@
+/* ── History Section ─────────────────────────────── */
+.historySection {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+  color: white;
+}
+
+.historyTopBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.historyTopBar h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.7);
+}
+
+.clearHistoryBtn {
+  background: rgba(231,76,60,0.2);
+  color: #ffaaaa;
+  border: 1px solid rgba(231,76,60,0.4);
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.clearHistoryBtn:hover {
+  background: rgba(231,76,60,0.35);
+}
+
+.historyEmpty {
+  color: rgba(255,255,255,0.35);
+  font-size: 0.9rem;
+  font-style: italic;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+/* ── List ────────────────────────────────────────── */
+.historyList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 440px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.historyList::-webkit-scrollbar { width: 5px; }
+.historyList::-webkit-scrollbar-track { background: transparent; }
+.historyList::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.15);
+  border-radius: 10px;
+}
+
+.historyItem {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px;
+  padding: 1rem 1.2rem;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Item top row ────────────────────────────────── */
+.historyItemTop {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.typeBadge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.typeEarthquake { background: rgba(255,193,7,0.2); color: #ffd54f; border: 1px solid rgba(255,193,7,0.3); }
+.typeTsunami    { background: rgba(26,188,156,0.2); color: #80cbc4; border: 1px solid rgba(26,188,156,0.3); }
+
+.historyTime {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.35);
+  flex: 1;
+}
+
+.riskBadge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+}
+
+.historyProbability {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.6);
+  margin-left: 8px;
+}
+
+.riskHigh    { background: rgba(231,76,60,0.2); color: #ff8a80; border: 1px solid rgba(231,76,60,0.3); }
+.riskLow     { background: rgba(39,174,96,0.2); color: #a5d6a7; border: 1px solid rgba(39,174,96,0.3); }
+.riskUnknown { background: rgba(149,165,166,0.15); color: rgba(255,255,255,0.4); }
+
+/* ── Params ──────────────────────────────────────── */
+.historyParams {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.paramChip {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 4px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.paramKey {
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.paramVal {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.85);
+}
+
+@media (max-width: 600px) {
+  .historySection { padding: 0 1rem 3rem; }
+}
